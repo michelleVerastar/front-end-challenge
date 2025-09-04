@@ -1,16 +1,16 @@
 <script setup lang="ts">
-import type { MovieSummary } from "../types/MovieSummary";
-import MovieListItem from "./MovieListItem.vue";
+    import type { MovieSummary } from "../types/MovieSummary";
+    import MovieListItem from "./MovieListItem.vue";
 
-defineProps<{
-  movies: MovieSummary[];
-}>();
+    defineProps<{
+        movies: MovieSummary[];
+    }>();
 
-const emit = defineEmits<{ (e: "select", id: string): void }>();
+    const emit = defineEmits<{ (e: "select", id: string): void }>();
 </script>
 
 <template>
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+    <div class="movie-list">
         <MovieListItem
             v-for="m in movies"
             :key="m.imdbID"
@@ -19,3 +19,10 @@ const emit = defineEmits<{ (e: "select", id: string): void }>();
         />
     </div>
 </template>
+
+<style scoped>
+    .movie-list {
+        display: flex;
+        flex-direction: column;
+    }
+</style>
