@@ -36,9 +36,9 @@ ________________
 ____________
 Style Notes:
 ____________
-    - Different colours for light and dark mode
-    - Responsive to different screen sizes
-    - I tried to make it pretty
+- Different colours for light and dark mode
+- Responsive to different screen sizes
+- I tried to make it pretty
 
 _______________
 For the Future:
