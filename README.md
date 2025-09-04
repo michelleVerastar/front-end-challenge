@@ -30,8 +30,8 @@ ________________
     - more lightweight than webpack
  
 - Http requests use axios instead of the native fetch API
-      - the requests are simpler, less lines of code,
-      - query param support built in and automatic JSON parsing
+    - the requests are simpler, less lines of code,
+    - query param support built in and automatic JSON parsing
 
 ____________
 Style Notes:
