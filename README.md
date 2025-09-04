@@ -12,8 +12,8 @@ ___________
 - If you want to run locally:
     - Make sure you have node and npm installed
     - in a terminal in the movie-explorer directory type:
-        npm install
-        npm run dev
+        - npm install
+        - npm run dev
     - then go to the localhost address
 
 ________________
