@@ -1,6 +1,6 @@
 
 _____________________________________________________
-Movie Explorer - Test Project for Front End Challenge
+<b>Movie Explorer - Test Project for Front End Challenge</b>
 _____________________________________________________
 
 
