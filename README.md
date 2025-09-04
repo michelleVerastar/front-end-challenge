@@ -23,7 +23,7 @@ ________________
    - See the vue documentation for more details https://vuejs.org/api/sfc-script-setup
       
 - The Vue3 standard for organising sections has become script > template > style  (as opposed to the vue2 ordering with template > script > style)
-    - The new ordering makes sense because props from the script section are used in the template section
+    - The new ordering makes sense because props from the script section are used in the template section so it flows more naturally
         - also reddit users report this involves less scrolling up and down: https://www.reddit.com/r/vuejs/comments/rmeoy7/what_order_do_you_have_your_template_and_script/
      
 - Typescript is used for the scripting language
