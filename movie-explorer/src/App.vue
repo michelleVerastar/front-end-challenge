@@ -22,8 +22,8 @@ async function handleSearch(query: string) {
   try {
     const result = await searchMovies(query);
 
-    if (result.Response === "True" && result.SearchResults) {
-      movies.value = result.SearchResults;
+    if (result.Response === "True" && result.Search) {
+      movies.value = result.Search;
       error.value = null;
     } else {
       movies.value = [];
