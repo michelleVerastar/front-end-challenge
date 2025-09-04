@@ -44,7 +44,7 @@ _______________
 For the Future:
 _______________
  - Things still to add but I thought would take too long (could come back to this in the future as as a front end learning project):
-    - Using a UI library -> I just used standard css but getting to know the libries available and how to use them would be good to do in the future
+    - Using a UI library -> I just used standard css but getting to know the libraries available and how to use them would be good to do in the future
     - PWA Extension
     - Unit tests
     - Thoroughly examine the Vue style guide to implement best practices https://vuejs.org/style-guide/rules-essential.html
