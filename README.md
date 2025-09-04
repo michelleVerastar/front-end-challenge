@@ -1,6 +1,6 @@
-__________
+
 <h1><b>Movie Explorer - Test Project for Front End Challenge</b></h1>
-_________
+
 
 
 
