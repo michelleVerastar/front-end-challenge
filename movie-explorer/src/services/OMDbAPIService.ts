@@ -5,7 +5,7 @@ import axios from "axios";
 import type { MovieSearchResponse } from "../types/MovieSearchResponse";  
 import type { MovieDetails } from "../types/MovieDetails";
 
-const apiKey = "YOUR_API_KEY"; // 🔑 replace with your OMDb key
+const apiKey = "260ec08a"; // 🔑 replace with your OMDb key
 const baseUrl = "https://www.omdbapi.com/";
 
 /**Get list of results from searching for a title - only returns short summary */

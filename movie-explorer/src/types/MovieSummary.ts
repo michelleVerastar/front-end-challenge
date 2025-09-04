@@ -1,5 +1,5 @@
 /** Interface for a single list result from the API Search */ 
-export interface MovieSearchItem {
+export interface MovieSummary {
     imdbID: string;
     Title: string;
     Year: string;

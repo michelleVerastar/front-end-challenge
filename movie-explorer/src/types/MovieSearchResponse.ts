@@ -1,8 +1,8 @@
-import type { MovieSearchItem } from "./MovieSearchItem";
+import type { MovieSummary } from "./MovieSummary";
 
-/** Interface for the results of an API search (with s parameter in url) to get a list result*/
+/** Interface for the results of an API search (with s parameter in url) to get a list result and any errors*/
 export interface MovieSearchResponse {
-    Results?: MovieSearchItem[];
+    SearchResults?: MovieSummary[];
     totalResults?: string;
     Response: string;
     Error?: string;
