@@ -33,15 +33,12 @@
     .modal-backdrop {
         position: fixed;
         inset: 0;
-        background-color: rgba(0, 0, 0, 0.7);
         display: flex;
         justify-content: center;
         align-items: center;
         z-index: 50;
     }
     .modal-content {
-        background-color: #242424;
-        color: #fff;
         padding: 2rem;
         border-radius: 0.5rem;
         max-width: 600px;
@@ -49,13 +46,13 @@
         max-height: 90vh;
         overflow-y: auto;
         position: relative;
+        background-color: var(--button-bg);
     }
     .modal-close {
         position: absolute;
         top: 0.5rem;
         right: 0.5rem;
         background: none;
-        color: #fff;
         font-size: 1.5rem;
         cursor: pointer;
         border: none;

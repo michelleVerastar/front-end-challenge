@@ -31,15 +31,14 @@
         align-items: center;
         justify-content: space-between;
         padding: 1rem;
-        border-bottom: 1px solid #444;
         cursor: pointer;
         transition: background-color 0.2s;
     }
     .movie-row:hover {
-        background-color: #333; /* Adjust for dark/light mode if needed */
+        background-color: var(--row-hover);
     }
 
-    /* Poster scaled to ~50% of previous height */
+    /* Poster scaled to ~50% of previous height to make thumbnails */
     .poster {
         width: 80px;
         height: auto;
@@ -52,21 +51,20 @@
     .info {
         flex: 1;
         text-align: left;
-        color: #fff;
     }
 
     /* Details button */
     .details-btn {
-        background-color: #646cff; /* override global button */
-        color: #fff;
         padding: 0.5rem 1rem;
         font-weight: 500;
         border: none;
         border-radius: 0.5rem;
         cursor: pointer;
         transition: background-color 0.2s;
+        color: var(--button-text);
+        background-color: var(--button-bg);
     }
     .details-btn:hover {
-        background-color: #535bf2;
+        background-color: var(--link-hover);
     }
 </style>
