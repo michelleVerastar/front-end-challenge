@@ -1,3 +1,4 @@
+<!-- Component that contains the list results from the movie search -->
 <script setup lang="ts">
     import type { MovieSummary } from "../types/MovieSummary";
     import MovieListItem from "./MovieListItem.vue";
@@ -6,7 +7,7 @@
         movies: MovieSummary[];
     }>();
 
-    const emit = defineEmits<{ (e: "select", id: string): void }>();
+    const emit = defineEmits<{ (e: "select", imdbID: string): void }>();
 </script>
 
 <template>
@@ -15,7 +16,7 @@
             v-for="m in movies"
             :key="m.imdbID"
             :movie="m"
-            @select="id => emit('select', id)"
+            @select="imdbID => emit('select', imdbID)"
         />
     </div>
 </template>

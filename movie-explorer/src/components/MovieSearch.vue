@@ -1,3 +1,4 @@
+<!-- Search Text input and button for the movie search -->
 <script setup lang="ts">
     import { ref } from "vue";
 

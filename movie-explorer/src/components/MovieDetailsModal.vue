@@ -1,65 +1,51 @@
+<!-- Popup with details of a specific movie that appears when clicking the show details button -->
 <script setup lang="ts">
     import type { MovieDetails } from "../types/MovieDetails";
-    import { defineProps, defineEmits } from "vue";
+    import { defineProps, defineEmits, ref, watch } from "vue";
 
-    defineProps<{
-        movie: MovieDetails;
+    const props = defineProps<{
+        dialogIsActive: boolean; // Controls the visibility of the modal
+        movie: MovieDetails | null;        
     }>();
 
+    // Note that vue3 automatically converts camelCase to kebab-case for emitted events so dialog-is-active links to dialogIsActive
     const emit = defineEmits<{
-        (e: "close"): void;
+        (e: "update:dialog-is-active", value: boolean): void //For closing the modal
     }>();
 
-    function close() {
-        emit("close");
-    }
+    // Local state to control the modal visibility
+    // Using the ref instead of prop directly then emitting is best practice - props should be immutable
+    const isActive = ref(props.dialogIsActive);
+
+    //watch for isActive change to trigger emit to close the dialog
+    watch(
+        () => props.dialogIsActive,
+        (val) => (isActive.value = val)
+    )
+    watch(isActive, (val) => emit("update:dialog-is-active", val))
+    
 </script>
 
 <template>
-    <div class="modal-backdrop" @click.self="close()">
-        <div class="modal-content">
-            <button class="modal-close" @click="close()">✕</button>
-            <img :src="movie.Poster" alt="Poster" class="poster" />
-            <h2>{{ movie.Title }} ({{ movie.Year }})</h2>
-            <p><strong>Genre:</strong> {{ movie.Genre }}</p>
-            <p><strong>Cast:</strong> {{ movie.Actors }}</p>
-            <p><strong>IMDb Rating:</strong> {{ movie.imdbRating }}</p>
-            <p><strong>Plot:</strong> {{ movie.Plot }}</p>
-        </div>
-    </div>
+    <!-- Uses Vuetify v-dialog for movie details modal  -->
+    <v-dialog v-model="isActive" max-width="600">
+        <!-- Uses vuetify v-card to neatly display the contents of the modal -->
+        <v-card>
+            <v-card-title>
+                <span>{{ props.movie?.Title }} ({{ props.movie?.Year }})</span>
+                <v-btn icon="mdi-close" variant="text" @click="isActive = false"></v-btn>
+            </v-card-title>
+        
+            <v-card-text>
+                <v-img v-if="props.movie?.Poster" :src="props.movie.Poster"/>
+                <p><strong>Genre:</strong> {{ props.movie?.Genre }}</p>
+                <p><strong>Cast:</strong> {{ props.movie?.Actors }}</p>
+                <p><strong>IMDb Rating:</strong> {{ props.movie?.imdbRating }}</p>
+                <p><strong>Plot:</strong> {{ props.movie?.Plot }}</p>
+            </v-card-text>      
+        </v-card>
+    </v-dialog>
 </template>
 
-<style scoped>
-    .modal-backdrop {
-        position: fixed;
-        inset: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        z-index: 50;
-    }
-    .modal-content {
-        padding: 2rem;
-        border-radius: 0.5rem;
-        max-width: 600px;
-        width: 90%;
-        max-height: 90vh;
-        overflow-y: auto;
-        position: relative;
-        background-color: var(--button-bg);
-    }
-    .modal-close {
-        position: absolute;
-        top: 0.5rem;
-        right: 0.5rem;
-        background: none;
-        font-size: 1.5rem;
-        cursor: pointer;
-        border: none;
-    }
-    .poster {
-        max-height: 300px;
-        object-fit: cover;
-        margin-bottom: 1rem;
-    }
+<style scoped>   
 </style>

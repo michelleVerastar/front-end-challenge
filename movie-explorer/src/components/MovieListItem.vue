@@ -1,3 +1,4 @@
+<!-- Component for a single list item in the movie search results -->
 <script setup lang="ts">
     import type { MovieSummary } from "../types/MovieSummary";
 

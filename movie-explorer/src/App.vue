@@ -1,3 +1,4 @@
+<!-- The main app component that controls the behaviour of the rest of the components -->
 <script lang="ts" setup>
     import { ref } from "vue";
     import MovieSearch from "./components/MovieSearch.vue";
@@ -12,6 +13,7 @@
     const selectedMovie = ref<MovieDetails | null>(null);
     const loading = ref(false);
     const error = ref<string | null>(null);
+    const showMovieDetails = ref(false);
 
     // Search handler
     async function handleSearch(query: string) {
@@ -45,7 +47,7 @@
 
         try {
             const details = await getMovieDetails(imdbID);
-            selectedMovie.value = details;
+            openModal(details);
         } catch (err: any) {
             error.value = err.message || "Failed to fetch movie details";
         } finally {
@@ -53,8 +55,9 @@
         }
     }
 
-    function closeModal() {
-        selectedMovie.value = null;
+    function openModal(movie: MovieDetails) {
+        selectedMovie.value = movie
+        showMovieDetails.value = true
     }
 </script>
 
@@ -78,10 +81,8 @@
 
         <!-- Selected movie details -->
         <MovieDetailsModal
-            v-if="selectedMovie" 
-            :movie="selectedMovie" 
-            @click="closeModal" 
-            @close="closeModal" 
+            v-model:dialog-is-active="showMovieDetails"
+            :movie="selectedMovie"     
           />
     </div>
 </template>
