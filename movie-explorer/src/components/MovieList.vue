@@ -11,23 +11,36 @@
 </script>
 
 <template>
-    <v-container fluid>
-    <v-row dense>
-        <v-col
-            v-for="movie in movies"
-            :key="movie.imdbID"
-            cols="12"     
-            md="6"        
-            class="mb-4"
+    <v-container 
+        fluid 
+        class="pa-0"
+    >
+        <v-row 
+            dense 
+            class="ma-0" 
+            style="row-gap: 0;"
+            no-gutters
         >
-            <MovieListItem
-                :movie="movie"
-                @select="imdbID => emit('select', imdbID)"
-            />
-        </v-col>
-    </v-row>
-  </v-container>
+            <v-col
+                v-for="movie in movies"
+                :key="movie.imdbID"
+                cols="12"
+                md="6"
+                class="pa-0"
+            >
+                <MovieListItem
+                    :movie="movie"
+                    class="fixed-height ma-0"
+                    @select="id => emit('select', id)"
+                />
+            </v-col>
+        </v-row>
+    </v-container>
 </template>
 
 <style scoped>
+    .fixed-height {
+        height: 150px; /* or any desired height */
+        overflow: hidden; /* prevent content overflow */
+    }
 </style>

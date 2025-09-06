@@ -11,9 +11,7 @@
 
 <template>
     <v-card 
-        class="d-flex flex-row align-center"
-        elevation="2"
-        rounded
+        class="d-flex flex-row align-center border-sm border-grey"
     >
         <!-- Poster -->
         <v-img 
@@ -26,7 +24,7 @@
         <v-card-text 
             class="flex-grow-1 align-center"
         >
-            <h2>{{ movie.Title }}  ,   {{ movie.Year }}</h2>
+            <h2> {{ movie.Title }} <span class="mr-2"> , </span> {{ movie.Year }}</h2>
         </v-card-text>
 
         <!-- Button -->
