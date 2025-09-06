@@ -48,12 +48,13 @@ ________________
 ____________
 Style Notes:
 ____________
-- TODO Using Vuetify UI Library
+- Using Vuetify UI Library
     - This uses Google's Material Design speciifcations which have become a staple of web design
     - Vuetify is specifically for Vue - easy to set up and use with vue components and works with both TS and JS versions
     - Vuetify is free open source software on the MIT license
         - This allows it for both personal and commercial use with no cost
         - It also means it can be modified - if we wanted to alter a component for our own purposes we could just take a fork from their github repo   https://github.com/vuetifyjs/vuetify
+    -using flex classes from the vuetify library in components https://vuetifyjs.com/en/styles/flex/#usage
 
 
 ______________________________________________

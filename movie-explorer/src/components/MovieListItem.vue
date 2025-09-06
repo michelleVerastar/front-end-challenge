@@ -10,62 +10,38 @@
 </script>
 
 <template>
-    <div class="movie-row" @click="emit('select', movie.imdbID)">
+    <v-card 
+        class="d-flex flex-row align-center"
+        elevation="2"
+        rounded
+    >
         <!-- Poster -->
-        <img :src="movie.Poster" alt="Poster" class="poster" />
+        <v-img 
+            :src="movie.Poster" 
+            alt="Poster"
+            max-width="100"
+         ></v-img>
 
         <!-- Title + Year -->
-        <div class="info">
-            <h2>{{ movie.Title }}, {{ movie.Year }}</h2>
-        </div>
+        <v-card-text 
+            class="flex-grow-1 align-center"
+        >
+            <h2>{{ movie.Title }}  ,   {{ movie.Year }}</h2>
+        </v-card-text>
 
         <!-- Button -->
-        <button class="details-btn" @click.stop="emit('select', movie.imdbID)">
-            See Details
-        </button>
-    </div>
+         <v-card-actions>
+            <v-btn 
+                color="primary" 
+                class="mr-4"
+                @click.stop="emit('select', movie.imdbID)"
+            >
+                See Details
+            </v-btn>
+         </v-card-actions>
+        
+    </v-card>
 </template>
 
 <style scoped>
-    .movie-row {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 1rem;
-        cursor: pointer;
-        transition: background-color 0.2s;
-    }
-    .movie-row:hover {
-        background-color: var(--row-hover);
-    }
-
-    /* Poster scaled to ~50% of previous height to make thumbnails */
-    .poster {
-        width: 80px;
-        height: auto;
-        object-fit: cover;
-        margin-right: 1rem;
-        flex-shrink: 0;
-    }
-
-    /* Title + Year */
-    .info {
-        flex: 1;
-        text-align: left;
-    }
-
-    /* Details button */
-    .details-btn {
-        padding: 0.5rem 1rem;
-        font-weight: 500;
-        border: none;
-        border-radius: 0.5rem;
-        cursor: pointer;
-        transition: background-color 0.2s;
-        color: var(--button-text);
-        background-color: var(--button-bg);
-    }
-    .details-btn:hover {
-        background-color: var(--link-hover);
-    }
 </style>

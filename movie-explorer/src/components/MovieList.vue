@@ -11,19 +11,23 @@
 </script>
 
 <template>
-    <div class="movie-list">
-        <MovieListItem
-            v-for="m in movies"
-            :key="m.imdbID"
-            :movie="m"
-            @select="imdbID => emit('select', imdbID)"
-        />
-    </div>
+    <v-container fluid>
+    <v-row dense>
+        <v-col
+            v-for="movie in movies"
+            :key="movie.imdbID"
+            cols="12"     
+            md="6"        
+            class="mb-4"
+        >
+            <MovieListItem
+                :movie="movie"
+                @select="imdbID => emit('select', imdbID)"
+            />
+        </v-col>
+    </v-row>
+  </v-container>
 </template>
 
 <style scoped>
-    .movie-list {
-        display: flex;
-        flex-direction: column;
-    }
 </style>

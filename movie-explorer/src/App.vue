@@ -62,15 +62,30 @@
 </script>
 
 <template>
-    <div class="max-w-5xl mx-auto p-6">
-        <h1 class="text-3xl font-bold mb-6 text-center">🎬 Movie Explorer</h1>
+    <v-container 
+        fluid 
+        class="py-6 text-center" 
+        style="max-width: 100%;"
+    >
+        <!-- Title -->
+        <h1 class="text-h3 font-weight-bold mb-4">🎬 Movie Explorer</h1>        
 
-        <!-- Search bar -->
+        <!-- Search -->
         <MovieSearch @search="handleSearch" />
 
         <!-- Loading / error messages -->
-        <div v-if="loading" class="text-gray-400 mt-4 text-center">Loading...</div>
-        <div v-else-if="error" class="text-red-500 mt-4 text-center">{{ error }}</div>
+        <v-alert 
+            v-if="loading"
+            type="info"  
+            class="my-4">Loading...
+        </v-alert>
+
+        <v-alert 
+            v-else-if="error" 
+            type="error"
+            class="my-4">
+            {{ error }}
+        </v-alert >
 
         <!-- Movie list -->
         <MovieList
@@ -84,9 +99,14 @@
             v-model:dialog-is-active="showMovieDetails"
             :movie="selectedMovie"     
           />
-    </div>
+    </v-container>
 </template>
 
 <style>
-/* optional global styling */
+    /* optional global styling */
+
+    /* -- */
+    :root {
+        --v-font-family: "Avenir, Helvetica, Arial, sans-serif";
+    }
 </style>
