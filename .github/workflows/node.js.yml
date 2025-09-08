@@ -1,5 +1,4 @@
 name: Deploy static content to Pages
-
 on:
   push:
     branches: ['main']
@@ -26,11 +25,19 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v5
 
+      - name: Show repo contents (debug)
+        run: |
+          echo "Repo root:"
+          ls -la
+          echo "movie-explorer:"
+          ls -la movie-explorer || true
+
       - name: Set up Node
         uses: actions/setup-node@v4
         with:
           node-version: lts/*
           cache: 'npm'
+          cache-dependency-path: ./movie-explorer/package-lock.json
 
       - name: Install dependencies
         run: npm ci
