@@ -7,7 +7,7 @@
 ___________
 How to Run:
 ___________
-- This project uses github pages to host so just go to <TBC>
+- This project uses github pages to host so just go to https://michelleVerastar.github.io/front-end-challenge
 
 - If you want to run locally:
     - Make sure you have node and npm installed
