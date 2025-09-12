@@ -1,16 +1,41 @@
 <!-- Search Text input and button for the movie search -->
 <script setup lang="ts">
     import { ref } from "vue";
+    import { useMovieStore } from '../stores/MovieStore';
+    import { searchMovies } from "../services/OMDbAPIService";
 
-    const emit = defineEmits<{ (e: "search", query: string): void }>();
-
+    //access the store
+    const movieStore = useMovieStore();
+    //local data variables
     const query = ref("");
 
-    function onSearch() {
+     // Search handler
+    async function onSearch() {
         if (query.value.trim()) {
-            emit("search", query.value.trim());
+            movieStore.setSelectedMovie(null);
+            movieStore.setLoading(true);
+            movieStore.setErrorMessage(null);
+
+            try {
+                const result = await searchMovies(query.value.trim());
+
+                if (result.Response === "True" && result.Search) {
+                    movieStore.setMovies(result.Search);
+                    movieStore.setErrorMessage(null);
+                } else {
+                    movieStore.setMovies([]);
+                    movieStore.setErrorMessage(result.Error ?? "No results found");
+                }
+            } catch (err: any) {
+                movieStore.setErrorMessage(err.message || "Failed to fetch movies");
+                movieStore.setMovies([]);
+            } finally {
+                movieStore.setLoading(false);
+            }
+
         }
     }
+
 </script>
 
 <template>
