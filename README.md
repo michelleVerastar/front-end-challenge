@@ -7,7 +7,7 @@
 ___________
 How to Run:
 ___________
-- This project uses github pages to host so just go to https://michelleVerastar.github.io/front-end-challenge
+- TODO This project uses github pages to host so just go to https://michelleVerastar.github.io/front-end-challenge
 
 - If you want to run locally:
     - Make sure you have node and npm installed
@@ -41,20 +41,15 @@ ________________
     - This is reccomended in the Vue documentation https://vuejs.org/guide/scaling-up/testing 
     - Based on vite which is already used in this project
 
-- TODO - double check vue best practices are used from here:
-    - https://v2.vuejs.org/v2/style-guide/
-    - https://medium.com/@ignatovich.dm/vue-3-best-practices-cb0a6e281ef4
-
 ____________
 Style Notes:
 ____________
 - Using Vuetify UI Library
-    - This uses Google's Material Design speciifcations which have become a staple of web design
-    - Vuetify is specifically for Vue - easy to set up and use with vue components and works with both TS and JS versions
-    - Vuetify is free open source software on the MIT license
-        - This allows it for both personal and commercial use with no cost
-        - It also means it can be modified - if we wanted to alter a component for our own purposes we could just take a fork from their github repo   https://github.com/vuetifyjs/vuetify
-    -using flex classes from the vuetify library in components https://vuetifyjs.com/en/styles/flex/#usage
+  - Made specifically for vue
+  - Big resource of pre-defined UI components with good documentation. See https://vuetifyjs.com/en/components/all/#containment
+  - The components library is free (though vuetify do sell paid themes and UI kits with pre defined layouts, behaviour and colour schemes)
+  - The component library is open source, so in theory we could alter specific components for our own purposes. See https://github.com/vuetifyjs/vuetify/tree/v3.10.0
+    
 
 
 ______________________________________________
