@@ -76,7 +76,6 @@
                 <v-sheet
                     border="dashed md"
                     color="surface-light"
-                    height="500"
                     rounded="lg"
                     width="100%"
                 >
