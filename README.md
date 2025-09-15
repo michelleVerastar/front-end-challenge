@@ -7,14 +7,12 @@
 ___________
 How to Run:
 ___________
-- TODO This project uses github pages to host so just go to https://michelleVerastar.github.io/front-end-challenge
 
-- If you want to run locally:
-    - Make sure you have node and npm installed
-    - in a terminal in the movie-explorer directory type:
-        - npm install
-        - npm run dev
-    - then go to the localhost address
+- Make sure you have node and npm installed
+- open terminal and navigate to  movie-explorer directory
+- npm install
+- npm run dev
+- go to the localhost address
 
 ________________
 Technical Notes:
@@ -34,12 +32,6 @@ ________________
     - the requests are simpler, less lines of code,
     - query param support built in and automatic JSON parsing
 
-- TODO - Using PWA to allow the user the add the site to thier home screen and save data offline 
-    - previous searches will load even if they are not connected to the internet
-
-- TODO - unit testing using Vitest
-    - This is reccomended in the Vue documentation https://vuejs.org/guide/scaling-up/testing 
-    - Based on vite which is already used in this project
 
 ____________
 Style Notes:
@@ -53,12 +45,12 @@ ____________
 
 
 ______________________________________________
-Misc Notes:
+TODO:
 ______________________________________________
-- I added Vuetify after already setting up the project with vite first which is the hard way of doing it (need to manually install sass, edit configs, main.ts etc to get vuetify working)
-    - In the future if using vuetify it is better to set up the whole project with vite and vuetify in one go, as per the "Using Vite" section in the instructions here: https://vuetifyjs.com/en/getting-started/installation/
-        - this sets everything up without needing manual edits or extra manual package installs
-    - There is a known bug where directly importing 'vuetify/styles' doesn't work when adding vuetify to an exisitng project, which is not an issue when creating the project with vuetify 
-        - see https://github.com/vuetifyjs/vue-cli-plugins/issues/303  and https://www.reddit.com/r/vuejs/comments/1i4zee2/cannot_find_module_vuetifystyles_or_its/  (I got this bug and had to import vuetify/styles/main.css)
+- Implement Github pages so can view site via url
+- Add PWA feature to allow the user the add the site to thier home screen and save data offline 
+- unit testing using Vitest
+    - This is reccomended in the Vue documentation https://vuejs.org/guide/scaling-up/testing 
+    - Based on vite which is already used in this project
 
 
