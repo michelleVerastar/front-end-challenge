@@ -15,7 +15,9 @@
         scrollable
     >
         <!-- Uses vuetify v-card to neatly display the contents of the modal -->
-        <v-card>        
+        <v-card
+            rounded="true"
+             border="lg opacity-12">        
             <!-- Title  -->
             <v-card-title class="text-center">
                 <span class="text-h6 font-weight-bold">

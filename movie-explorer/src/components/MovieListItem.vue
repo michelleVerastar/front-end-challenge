@@ -31,32 +31,33 @@
 
 <template>
     <v-card 
-        class="d-flex flex-row align-center border-sm border-grey"
+        class="mx-auto text-center"
+        :subtitle="movie.Year"
+        width="300"
+        height="330"
+        rounded="true"
+        border="lg opacity-12"
     >
+        <template v-slot:title>
+            <span class="font-weight-black">{{ movie.Title }}</span>
+        </template>
         <!-- Poster -->
         <v-img 
             :src="movie.Poster" 
             alt="Poster"
-            max-width="100"
+            max-height="200"
          ></v-img>
 
-        <!-- Title + Year -->
-        <v-card-text 
-            class="flex-grow-1 align-center"
-        >
-            <h2> {{ movie.Title }} <span class="mr-2"> , </span> {{ movie.Year }}</h2>
-        </v-card-text>
-
         <!-- Button -->
-         <v-card-actions>
+        <template v-slot:actions>
             <v-btn 
+                block
                 color="primary" 
-                class="mr-4"
+                class="mr-4 mb-2"
                 @click.stop="handleSelect(movie.imdbID)"
-            >
-                See Details
-            </v-btn>
-         </v-card-actions>
+                text="See Details"
+            ></v-btn>
+        </template>
         
     </v-card>
 </template>

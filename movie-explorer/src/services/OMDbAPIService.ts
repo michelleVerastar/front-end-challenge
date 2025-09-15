@@ -9,9 +9,13 @@ const apiKey = "260ec08a"; // OMDb API key - get from http://www.omdbapi.com/api
 const baseUrl = "https://www.omdbapi.com/";
 
 /**Get list of results from searching for a title - only returns short summary */
-export const searchMovies = async (title: string): Promise<MovieSearchResponse> => {
+export const searchMovies = async (title: string, pageNumber: number = 1): Promise<MovieSearchResponse> => {
   const res = await axios.get<MovieSearchResponse>(baseUrl, {
-    params: { apikey: apiKey, s: title }
+    params:{ 
+      apikey: apiKey, 
+      s: title,
+      page: pageNumber  // OMDb API returns 10 results per page - use page parameter to get more results
+    }
   });
   return res.data;
 };

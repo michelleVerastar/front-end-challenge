@@ -4,25 +4,26 @@
     import { useMovieStore } from '../stores/MovieStore';
 
     const movieStore = useMovieStore();
+
+    async function changePage(newPage: number) {
+        movieStore.setPageNumber(newPage);
+        if (movieStore.query.trim()) {
+            await  movieStore.onSearch()
+        }
+    }
 </script>
 
 <template>
-    <v-container 
-        fluid 
-        class="pa-0"
+    <v-sheet 
+        rounded="true"
+        class="mx-auto"
     >
-        <v-row 
-            dense 
-            class="ma-0" 
-            style="row-gap: 0;"
-            no-gutters
-        >
+        <v-row>
             <v-col
                 v-for="movie in movieStore.movies"
                 :key="movie.imdbID"
-                cols="12"
-                md="6"
-                class="pa-0"
+                cols="12"  
+                md="3"
             >
                 <MovieListItem
                     :movie="movie"
@@ -30,12 +31,15 @@
                 />
             </v-col>
         </v-row>
-    </v-container>
+
+        <v-pagination 
+            v-model="movieStore.pageNumber"
+            :length="movieStore.totalResults"   
+            :total-visible="10"
+            @update:model-value="changePage"         
+        ></v-pagination>
+    </v-sheet>
 </template>
 
 <style scoped>
-    .fixed-height {
-        height: 150px; /* or any desired height */
-        overflow: hidden; /* prevent content overflow */
-    }
 </style>
