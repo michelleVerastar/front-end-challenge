@@ -39,7 +39,7 @@ ____________
 - Using Vuetify UI Library
   - Made specifically for vue
   - Big resource of pre-defined UI components with good documentation. See https://vuetifyjs.com/en/components/all/#containment
-  - The components library is free (though vuetify do sell paid themes and UI kits with pre defined layouts, behaviour and colour schemes)
+  - The components library is free (though vuetify do sell paid themes and UI kits)
   - The component library is open source, so in theory we could alter specific components for our own purposes. See https://github.com/vuetifyjs/vuetify/tree/v3.10.0
     
 
